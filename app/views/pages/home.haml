@@ -1,0 +1,22 @@
+.app
+  %a{ :href => '/', '@click.prevent' => %{click('1', "2", 3)} }
+    click('1', "2", 3)
+.app
+  %a{ :href => '/', '@click.prevent' => %{click('1', "2", 3)}.html_safe }
+    click('1', "2", 3)
+
+:plain
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    document.querySelectorAll('.app').forEach(el=>{
+      let App = new Vue({
+        el: el,
+        methods: {
+          click(w){
+            alert(w);
+          }
+        }
+      });
+    });
+  </script>
+
